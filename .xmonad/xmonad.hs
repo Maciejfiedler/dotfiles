@@ -8,7 +8,7 @@ import XMonad.Layout.LayoutCombinators
 import System.IO
 
 myTerminal = "kitty"
-myBrowser = "brave"
+myBrowser = "brave-bin"
 
 myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| Full
   where tiled = Tall 1 (3/100) (1/2)
