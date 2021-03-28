@@ -7,7 +7,7 @@ Config { font = "xft:DejaVu Sans Mono Nerd Font:pixelsize=12:antialias:false:hin
        , persistent = True
        , commands = [ 
                       Run Cpu ["-L","3","-H","50"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Memory ["-t","Mem: <used>M"] 10
                     , Run Date "%H:%M:%S %A %d %B %Y" "date" 10
                     , Run Battery [ "--template" , "Battery: <acstatus>"
                              , "--Low"      , "20"        -- units: %
