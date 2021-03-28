@@ -5,18 +5,20 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Layout.Maximize
 import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.NoBorders
 import System.IO
 
 myTerminal = "kitty"
 myBrowser = "brave-bin"
+rofiLauncher = "rofi -modi run -show run -theme Monokai"
 
-myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| Full
+myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders Full
   where tiled = Tall 1 (3/100) (1/2)
 
 main = do   
     xmproc <- spawnPipe "xmobar" -- bar
     -- trayer
-    spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
+    spawnPipe "trayer-srg --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
     spawnPipe "nitrogen --restore" --wallpaper
     xmonad $ docks def
         { terminal = myTerminal
@@ -41,5 +43,5 @@ main = do
         , ("M1-f", sendMessage $ JumpToLayout "Full")
         , ("M1-r", withFocused (sendMessage . maximizeRestore))
         , ("M1-w", kill)
-        , ("M1-p", spawn "rofi -show run -theme Monokai")
+        , ("M1-p", spawn rofiLauncher)
         ]
