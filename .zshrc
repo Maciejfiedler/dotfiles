@@ -19,7 +19,7 @@ _comp_options+=(globdots) # include hidden files
 bindkey -v
 
 # zsh syntax hilighting
-source /home/maciej/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/maciej/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 clear
 
 # startship command prompt
