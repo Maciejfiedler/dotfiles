@@ -18,7 +18,7 @@ main = do
     -- trayer
     spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
     spawnPipe "nitrogen --restore" --wallpaper
-    xmonad $ docks defaultConfig
+    xmonad $ docks def
         { terminal = myTerminal
         , focusedBorderColor = "#302d75"
         , normalBorderColor = "#000000"
