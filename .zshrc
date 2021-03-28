@@ -26,3 +26,5 @@ source /home/maciej/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # startship command prompt
 eval "$(starship init zsh)"
+
+clear
