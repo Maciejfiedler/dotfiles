@@ -1,0 +1,7 @@
+format = """
+[](bold blue) 
+"""
+
+add_newline = false 
+
+scan_timeout = 10

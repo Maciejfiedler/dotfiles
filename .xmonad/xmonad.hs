@@ -7,7 +7,7 @@ import XMonad.Layout.Maximize
 import XMonad.Layout.LayoutCombinators
 import System.IO
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 myBrowser = "brave"
 
 myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| Full
@@ -27,7 +27,7 @@ main = do
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppSep = " | "
-                        , ppTitle = xmobarColor "#d1e3ff" ""
+                        , ppTitle = xmobarColor "#d1e3ff" "" . shorten 60
                         , ppLayout = xmobarColor "#679df0" "" 
                         , ppCurrent = xmobarColor "#3c7ae6" "" . wrap "[" "]"
                         , ppHidden = xmobarColor "#3b5e94" ""

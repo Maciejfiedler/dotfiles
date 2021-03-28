@@ -1,0 +1,29 @@
+Config { font = "xft:DejaVu Sans Mono Nerd Font:pixelsize=12:antialias:false:hinting:false",
+		   , additionalFonts = []
+       , bgColor = "black"
+       , alpha = 150
+       , fgColor = "white"
+       , position = TopW L 90
+       , persistent = True
+       , commands = [ 
+                      Run Cpu ["-L","3","-H","50"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Date "%H:%M:%S %A %d %B %Y" "date" 10
+                    , Run Battery [ "--template" , "Battery: <acstatus>"
+                             , "--Low"      , "20"        -- units: %
+                             , "--normal"   , "white"
+
+                             , "--" -- battery specific options
+                                       -- discharging status
+                                       , "-o"	, "<left>% (<timeleft>)"
+                                       -- AC "on" status
+                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       -- charged status
+                                       , "-i"	, "<fc=#006000>Charged</fc>"
+                             ] 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %date% | %battery%"
+       }

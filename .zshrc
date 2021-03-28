@@ -20,9 +20,7 @@ bindkey -v
 
 # zsh syntax hilighting
 source /home/maciej/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+clear
 
 # startship command prompt
 eval "$(starship init zsh)"
-
-# clear errors
-clear
