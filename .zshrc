@@ -10,17 +10,19 @@ HISTFILE=~/.zsh_history
 # Tab and Autocompletion
 autoload -U compinit
 zstyle ':completion:*' menu select
-zmodload zsh/complist
-source ~/.config/git-completion.zsh
 compinit
 _comp_options+=(globdots) # include hidden files
+
+# Git completion
+zstyle ':completion:*:*:git:*' script ~/.config/zsh/git-completion.bash
+fpath=(~/.config/zsh $fpath)
+autoload -Uz compinit && compinit
 
 # Vi mode
 bindkey -v
 
 # zsh syntax hilighting
 source /home/maciej/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-clear
 
 # startship command prompt
 eval "$(starship init zsh)"
