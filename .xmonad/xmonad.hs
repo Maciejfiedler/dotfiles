@@ -19,8 +19,8 @@ myLayout = renamed [Replace "Tiled"] $ maximize $ avoidStruts (tiled ||| Mirror 
 main = do   
     xmproc <- spawnPipe "xmobar" -- bar
     -- trayer
-    spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
-    spawnPipe "nitrogen --restore" --wallpaper
+    spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
+    spawn "nitrogen --restore" --wallpaper
     xmonad $ docks def
         { terminal = myTerminal
         , focusedBorderColor = "#302d75"
@@ -39,10 +39,10 @@ main = do
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         }
         `additionalKeysP` 
-        [ ("M-M1-<Return>", spawn myTerminal) 
-        , ("M-M1-b", spawn myBrowser) 
-        , ("M1-f", sendMessage $ JumpToLayout "Full")
-        , ("M1-r", withFocused (sendMessage . maximizeRestore))
-        , ("M1-w", kill)
+        [ ("M-M1-<Return>", spawn myTerminal) -- launch terminal
+        , ("M-M1-b", spawn myBrowser) -- launch browser
+        , ("M1-f", sendMessage $ JumpToLayout "Full") -- jump to fullscreen layout
+        , ("M1-r", withFocused (sendMessage . maximizeRestore)) -- maximize restore window
+        , ("M1-w", kill) -- close window
         , ("M1-p", spawn rofiLauncher)
         ]
