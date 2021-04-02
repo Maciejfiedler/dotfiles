@@ -10,16 +10,16 @@ import XMonad.Layout.Renamed
 import System.IO
 
 myTerminal = "kitty"
-myBrowser = "brave-bin"
+myBrowser = "brave"
 rofiLauncher = "rofi -modi run -show run -theme Monokai"
 
-myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders Full
-  where tiled = renamed [Replace "Tiled"] $ Tall 1 (3/100) (1/2)
+myLayout = renamed [Replace "Tiled"] $ maximize $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders Full
+  where tiled = Tall 1 (3/100) (1/2)
 
 main = do   
     xmproc <- spawnPipe "xmobar" -- bar
     -- trayer
-    spawnPipe "trayer-srg --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
+    spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
     spawnPipe "nitrogen --restore" --wallpaper
     xmonad $ docks def
         { terminal = myTerminal
