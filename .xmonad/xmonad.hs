@@ -6,6 +6,7 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Layout.Maximize
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Renamed
 import System.IO
 
 myTerminal = "kitty"
@@ -13,7 +14,7 @@ myBrowser = "brave-bin"
 rofiLauncher = "rofi -modi run -show run -theme Monokai"
 
 myLayout = maximize $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders Full
-  where tiled = Tall 1 (3/100) (1/2)
+  where tiled = renamed [Replace "Tiled"] $ Tall 1 (3/100) (1/2)
 
 main = do   
     xmproc <- spawnPipe "xmobar" -- bar
