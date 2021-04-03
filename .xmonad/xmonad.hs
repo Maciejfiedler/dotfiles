@@ -23,8 +23,9 @@ myLayout =
   where tiled = Tall 1 (3/100) (1/2)
 
 main = do   
-    spawn "bash ~/.screenlayout/1monitor.sh"
     xmproc <- spawnPipe "xmobar" -- bar
+    spawn "bash ~/.screenlayout/1monitor.sh" -- monitor script
+    spawn "pulseaudio --start" -- start pulseaudio daemon
     -- trayer
     spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
     spawn "nitrogen --restore" --wallpaper
