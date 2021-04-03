@@ -13,10 +13,17 @@ myTerminal = "kitty"
 myBrowser = "brave"
 rofiLauncher = "rofi -modi run -show run -theme Monokai"
 
-myLayout = renamed [Replace "Tiled"] $ maximize $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders Full
+myLayout = 
+    renamed [CutWordsLeft 1] 
+    $ maximize 
+    $ avoidStruts 
+    (tiled |||
+    Mirror tiled) ||| 
+    noBorders Full
   where tiled = Tall 1 (3/100) (1/2)
 
 main = do   
+    spawn "bash ~/.screenlayout/1monitor.sh"
     xmproc <- spawnPipe "xmobar" -- bar
     -- trayer
     spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
