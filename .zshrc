@@ -28,8 +28,6 @@ source /home/maciej/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 
 # Aliases
-alias discord='cd ~/Apps/discord/Discord && ./Discord'
-alias minecraft='cd ~/Apps/minecraft-launcher && ./minecraft-launcher'
 alias drun='rofi -modi drun -show drun'
 
 clear
