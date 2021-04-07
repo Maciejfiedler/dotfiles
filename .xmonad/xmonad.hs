@@ -28,7 +28,7 @@ main = do
     -- trayer
     spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --height 19 --alpha 150 --tint 0x00000"
     spawn "nitrogen --restore" --wallpaper
-    spawn "pulseaudio --start" -- start pulseaudio daemon
+    spawn "picom" --picom
     xmonad $ docks def
         { terminal = myTerminal
         , focusedBorderColor = "#302d75"
